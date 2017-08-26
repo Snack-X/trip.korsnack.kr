@@ -1,0 +1,73 @@
+.page.-main {
+  & > .content {
+    & > .container {
+      & > .title {
+        margin-bottom: $content-margin;
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+      }
+
+      & > .trips {
+        list-style-type: none;
+
+        & > .item {
+          margin: $trips-margin 0;
+          text-decoration: none;
+          color: #212529;
+
+          & > .flag {
+            float: left;
+            margin-right: 16px;
+            width: $trips-flag-width + 2px;
+            height: $trips-flag-height + 2px;
+            border-radius: $trips-flag-border-radius + 1px;
+            border: 1px solid $trips-flag-border-color;
+
+            & > img {
+              width: $trips-flag-width;
+              border-radius: $trips-flag-border-radius;
+            }
+          }
+
+          & > .name {
+            margin: 0 0 1rem;
+            font-size: 2rem;
+            line-height: 2.25rem;
+
+            & > a {
+              @include reset-link($color-text-second, $color-text-first, true);
+            }
+          }
+
+          & > .date {
+            margin: 0 0 1rem;
+            font-size: 1rem;
+            line-height: 1.25rem;
+
+            & > a {
+              @include reset-link($color-text-second, $color-text-first, true);
+
+              & > .tilde { margin: 0 .25rem; }
+            }
+          }
+
+          & > .posts {
+            @include reset-list;
+
+            & > .item {
+              display: inline-block;
+              margin: 0 .75rem 1rem 0;
+              font-weight: bold;
+
+              & > a {
+                @include reset-link($trips-post-color, $trips-post-active, true);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

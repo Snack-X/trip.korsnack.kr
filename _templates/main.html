@@ -1,0 +1,27 @@
+{{> pageStart pageTitle="Snack Trips" pageClass="main" }}
+
+<section class="content">
+  <div class="container">
+    <h2 class="title">All Trips</h2>
+    <section class="trips">
+    {{#each travels as |travel travelId|}}
+      <div class="item">
+        <div class="flag"><img src="/assets/images/flag-{{metadata.country}}.svg"></div>
+        <h3 class="name">{{metadata.name}}</h3>
+        <p class="date">
+          <date class="start" datetime="{{metadata.start}}">{{metadata.start}}</date>
+          <span class="tilde">~</span>
+          <date class="end" datetime="{{metadata.end}}">{{metadata.end}}</date>
+        </p>
+        <ul class="posts">
+        {{#each posts}}
+          <li class="item"><a href="/{{travelId}}/{{filename}}.html">{{metadata.title}}</a></li>
+        {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+    </section>
+  </div>
+</section>
+
+{{> pageEnd }}

@@ -1,0 +1,33 @@
+.page.-post {
+  & > .content {
+    & > .container {
+      & > .title {
+        margin-bottom: $content-margin;
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+      }
+
+      & > .rendered {
+        line-height: 2em;
+
+        img {
+          display: block;
+          margin: auto;
+          max-width: 90%;
+        }
+
+        .exif {
+          text-align: center;
+          font-size: .75rem;
+          font-family: monospace;
+          color: $color-text-third;
+        }
+
+        p + .exif { margin-top: -1rem; }
+
+      }
+    }
+  }
+}

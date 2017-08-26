@@ -1,0 +1,11 @@
+@mixin reset-link($color-normal, $color-active, $no-decoration) {
+  @if $no-decoration { text-decoration: none; }
+  color: $color-normal;
+  &:hover { color: $color-active; }
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

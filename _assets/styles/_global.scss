@@ -1,0 +1,65 @@
+.page {
+  & > .header {
+    position: relative;
+    height: $header-height;
+    text-align: center;
+    background-color: #000;
+
+    & > .bg {
+      position: absolute;
+      width: 100%;
+      height: $header-height;
+      background-image: url("/assets/images/header.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+    }
+
+    & > .title {
+      position: absolute;
+      margin: (($header-height - $header-title-size) / 2) 0;
+      width: 100%;
+      height: $header-title-size;
+
+      & > .text {
+        margin: 0;
+        font-size: $header-title-size;
+        line-height: $header-title-size;
+        color: $header-title-color;
+
+        & > a {
+          @include reset-link($header-title-color, $header-title-color, true);
+        }
+      }
+    }
+  }
+
+  & > .content {
+    margin: $content-margin 0;
+  }
+
+  & > .footer {
+    margin: 3rem;
+    font-size: $footer-text-size;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: $footer-text-color;
+
+    & > .container {
+      & > .links {
+        @include reset-list;
+
+        & > .item {
+          display: inline-block;
+          margin: 0 .3333rem;
+
+          & > a {
+            @include reset-link($footer-text-color, $footer-text-active, true);
+          }
+        }
+      }
+    }
+  }
+}

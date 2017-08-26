@@ -1,0 +1,36 @@
+@import "open-color/open-color.scss";
+
+$text-size: 16px;
+
+$color-background:     $oc-gray-0;
+$color-text-first:     $oc-gray-9;
+$color-text-second:    $oc-gray-7;
+$color-text-third:     $oc-gray-5;
+
+$color-link:        $oc-blue-6;
+$color-link-active: $oc-blue-7;
+
+
+$page-width:  720px;
+
+$header-height: 20rem;
+$header-title-color: $oc-gray-0;
+$header-title-size:  5rem;
+
+$content-margin: 4rem;
+
+$footer-text-size:   0.8rem;
+$footer-text-color:  $color-text-third;
+$footer-text-active: $color-text-second;
+
+
+$trips-margin: 3rem;
+
+$trips-flag-width:  ($text-size * 6) - 2px; // 6rem
+$trips-flag-height: $trips-flag-width * 0.75; // 4x3
+
+$trips-flag-border-color:  $oc-gray-6;
+$trips-flag-border-radius: $trips-flag-width / 8;
+
+$trips-post-color:  $color-text-second;
+$trips-post-active: $color-text-first;

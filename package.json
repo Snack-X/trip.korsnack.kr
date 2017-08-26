@@ -1,0 +1,32 @@
+{
+  "name": "trip.korsnack.kr",
+  "version": "1.0.0",
+  "description": "Snack Trips",
+  "private": true,
+  "main": "docs/index.html",
+  "author": "Snack <korsnack@korsnack.kr>",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "scripts": {
+    "build": "npm run build-html && npm run build-sass",
+    "build-html": "node build.js",
+    "build-sass": "node-sass _assets --recursive --output docs/assets --output-style compressed --include-path node_modules",
+    "watch-sass": "npm run build-sass -- --watch",
+    "preview-py2": "cd docs && python -m SimpleHTTPServer && cd .."
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "exif": "^0.6.0",
+    "flag-icon-css": "^2.8.0",
+    "handlebars": "^4.0.10",
+    "html-minifier": "^3.5.3",
+    "js-yaml": "^3.9.1",
+    "markdown-it": "^8.3.2",
+    "mz": "^2.6.0",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "open-color": "^1.5.1"
+  },
+  "dependencies": {
+    "rimraf": "^2.6.1"
+  }
+}
