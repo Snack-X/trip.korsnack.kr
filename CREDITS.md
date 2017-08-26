@@ -16,3 +16,5 @@
 
 * https://github.com/lipis/flag-icon-css (MIT)
 * https://pixabay.com/ko/sky-blue-cloud-plane-flying-2546570/ (CC0)
+* https://github.com/joshbuchea/HEAD (CC0)
+* https://realfavicongenerator.net/

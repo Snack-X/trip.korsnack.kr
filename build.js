@@ -134,7 +134,7 @@ async function readPost(filepath) {
 
 async function cleanFiles(outDir) {
   const entries = await fs.readdir(outDir);
-  const KEEP = [ "assets", "images", "photos", "CNAME" ];
+  const KEEP = [ "assets", "images", "photos", "CNAME", "favicon.ico" ];
 
   for(const entry of entries) {
     if(KEEP.includes(entry)) continue;
