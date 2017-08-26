@@ -13,9 +13,12 @@ $color-link-active: $oc-blue-7;
 
 $page-width:  720px;
 
-$header-height: 20rem;
-$header-title-color: $oc-gray-0;
-$header-title-size:  5rem;
+$header-height:       20rem;
+$header-height-m:     10rem;
+$header-title-color:  $oc-gray-0;
+$header-title-size:   5rem;
+$header-title-size-m: 3rem;
+
 
 $content-margin: 4rem;
 
@@ -26,11 +29,19 @@ $footer-text-active: $color-text-second;
 
 $trips-margin: 3rem;
 
-$trips-flag-width:  ($text-size * 6) - 2px; // 6rem
-$trips-flag-height: $trips-flag-width * 0.75; // 4x3
+$trips-flag-width:    $text-size * 6; // 6rem
+$trips-flag-width-m:  $text-size * 4; // 4rem
+$trips-flag-height:   $trips-flag-width * 0.75; // 4x3
+$trips-flag-height-m: $trips-flag-width-m * 0.75; // 4x3
 
-$trips-flag-border-color:  $oc-gray-6;
-$trips-flag-border-radius: $trips-flag-width / 8;
+$trips-flag-border-color:    $oc-gray-6;
+$trips-flag-border-radius:   $trips-flag-width / 8;
+$trips-flag-border-radius-m: $trips-flag-width-m / 8;
+
+$trips-title-margin:   1rem;
+$trips-title-margin-m: 0.25rem;
+$trips-title-size:     2rem;
+$trips-title-size-m:   1.5rem;
 
 $trips-post-color:  $color-text-second;
 $trips-post-active: $color-text-first;

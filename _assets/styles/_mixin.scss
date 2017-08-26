@@ -9,3 +9,9 @@
   padding: 0;
   list-style-type: none;
 }
+
+@mixin mobile {
+  @media (max-width: $page-width + 30px) {
+    @content;
+  }
+}

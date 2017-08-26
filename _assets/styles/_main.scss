@@ -25,16 +25,33 @@
             border-radius: $trips-flag-border-radius + 1px;
             border: 1px solid $trips-flag-border-color;
 
+            @include mobile {
+              width: $trips-flag-width-m + 2px;
+              height: $trips-flag-height-m + 2px;
+              border-radius: $trips-flag-border-radius-m + 1px;
+            }
+
             & > img {
               width: $trips-flag-width;
               border-radius: $trips-flag-border-radius;
+
+              @include mobile {
+                width: $trips-flag-width-m;
+                border-radius: $trips-flag-border-radius-m;
+              }
             }
           }
 
           & > .name {
-            margin: 0 0 1rem;
-            font-size: 2rem;
-            line-height: 2.25rem;
+            margin: 0 0 $trips-title-margin;
+            font-size: $trips-title-size;
+            line-height: $trips-title-size + 0.25rem;
+
+            @include mobile {
+              margin: 0 0 $trips-title-margin-m;
+              font-size: $trips-title-size-m;
+              line-height: $trips-title-size-m + 0.25rem;
+            }
 
             & > a {
               @include reset-link($color-text-second, $color-text-first, true);

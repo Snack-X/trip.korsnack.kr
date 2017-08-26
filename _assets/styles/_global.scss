@@ -5,6 +5,8 @@
     text-align: center;
     background-color: #000;
 
+    @include mobile { height: $header-height-m; }
+
     & > .bg {
       position: absolute;
       width: 100%;
@@ -14,6 +16,8 @@
       background-size: cover;
       background-repeat: no-repeat;
       opacity: 0.5;
+
+      @include mobile { height: $header-height-m; }
     }
 
     & > .title {
@@ -22,11 +26,18 @@
       width: 100%;
       height: $header-title-size;
 
+      @include mobile { margin: (($header-height-m - $header-title-size-m) / 2) 0; }
+
       & > .text {
         margin: 0;
         font-size: $header-title-size;
         line-height: $header-title-size;
         color: $header-title-color;
+
+        @include mobile {
+          font-size: $header-title-size-m;
+          line-height: $header-title-size-m;
+        }
 
         & > a {
           @include reset-link($header-title-color, $header-title-color, true);
@@ -40,7 +51,7 @@
   }
 
   & > .footer {
-    margin: 3rem;
+    margin: 3rem 0;
     font-size: $footer-text-size;
     font-weight: bold;
     text-align: center;
