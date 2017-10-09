@@ -11,7 +11,8 @@
     "build-html": "node build.js",
     "build-sass": "node-sass _assets --recursive --output docs/assets --output-style compressed --include-path node_modules",
     "watch-sass": "npm run build-sass -- --watch",
-    "preview-py2": "cd docs && python -m SimpleHTTPServer && cd .."
+    "preview-py2": "cd docs && python -m SimpleHTTPServer && cd ..",
+    "preview-py3": "cd docs && python3 -m http.server && cd .."
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
