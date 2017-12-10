@@ -63,11 +63,7 @@
             font-size: 1rem;
             line-height: 1.25rem;
 
-            & > a {
-              @include reset-link($color-text-second, $color-text-first, true);
-
-              & > .tilde { margin: 0 .25rem; }
-            }
+            & > .tilde { margin: 0 .25rem; }
           }
 
           & > .posts {
