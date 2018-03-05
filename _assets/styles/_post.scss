@@ -31,6 +31,30 @@
         .embed-responsive {
           margin: 3rem 0;
         }
+
+        table {
+          margin: auto;
+          max-width: 100%;
+          border: 1px solid $color-table-border-first;
+          border-collapse: collapse;
+
+          thead + tbody,
+          tbody + tfoot { border-top: 4px double $color-table-border-first; }
+
+          th, td {
+            padding: .15rem .5rem;
+            // border: 1px solid $color-table-border-second;
+          }
+
+          tr + tr {
+            border-top: 1px solid $color-table-border-second;
+          }
+
+          th + th,
+          td + td {
+            border-left: 1px solid $color-table-border-second;
+          }
+        }
       }
     }
   }
