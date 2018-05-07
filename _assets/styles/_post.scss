@@ -12,6 +12,15 @@
       & > .rendered {
         line-height: 2em;
 
+        .ext-googlemaps {
+          margin: 3rem 0;
+          width: 100%;
+          line-height: 30vh;
+          font-size: 0;
+          line-height: 0;
+          background-color: $color-background-darker;
+        }
+
         img {
           display: block;
           margin: auto;
