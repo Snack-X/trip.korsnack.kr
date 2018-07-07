@@ -2,3 +2,4 @@ node_modules/
 utils/
 
 .travis/travis_deploy
+.travis/.env

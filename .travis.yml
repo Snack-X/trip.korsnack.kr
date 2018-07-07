@@ -1,23 +1,20 @@
 language: node_js
 node_js:
-  - "8"
-
+- '8'
 env:
   global:
-    secure: "hxD9JwT++I56566aqkapNvlB0dc9u2T62BVHwx/jGY/YIyfHMpyaI4xsA73OkHlblWGyWAvc75vXAEBvakDKCtPj+a23r5Kdl7ocu2ztBr/gMIqzhNLU021yf7ztFhzcafmPpM24c30hSB4GX5F4cKKH/KGiTGlYyY9vvu7Li4B6cnNhjlbNeJ841Ptc4vTdBaMinjct4OxrS4ZWaHV+HxH4cjwVH+lU0Xq4TCZZiWVXBYWkN1m8jdrHEAOut9ZfTD8bRdv+f8zcxXPLUah8cysbVrU5LyW1j4p36eikmzhe3OHpfeLjGLZbH5KzRpPTxSK71qLFU5Xv8rbfDLW67FXDmf8MXXijlClNIykgt0AEjUpxQnCgf80e+Z+IxO5RepManBD+DTzlQzpYpuRT3K6owN0YQ+nsx/+q1xsQ3dW6WMUY4b8LZE7ldv+3tzWIMV79VvpFFed37cATHCiOKsKyAer7or8lpIz1mLdI80mLUF4mhhrOnSfPlNkaKQIUMJymPSGgsjo2esrND7Rt0zm/Wp0FBC50zWOmBiJadGxQjOmTNhymgMGb9JgXFlVcjjy7bIej9ywXhfdCS+xK8cfWjmPPnSThfnz6utCZfQMUN08DoCIfibZYFWoeV2A0NBW9klRmppZmMishSo2PiB13kaaKQET+ntFlFmuuWvY="
-
+    secure: "QOzsnJPbDmnrxf9Te4TtNlFckbJBVv/qvzb1L0k6DeBefSNNNBqEIYsRV8a1ExkuyuPBWh6JkNfbGX7XpN0s54AYJwr0JsJRjIQlTBYZGl2LLVnjlm2s/fcG84oat1jBh7wr3d/vzAESuSqN1BQw5U5cvd4zZCcHmkNsjYHICq1/nwt54UGv9HU7bGRu1nvhQK7D7FkVei+mBvNG7jlcFnzYxM89KDCqlGiE7jv2UIDESkAZtUMZmxDZ20Y0V5QUAEAKCLMsAUtcljrALbU2h5zELzfKMgCbqyqUBYrTm47kZKKtJGLFjF2geXBU+GzZ5E6f7mFtT5kz80P8Rmf7eOtyBVZxWne2eaM1MdYnlO5SvixXpzDfZqEA3dAH7WV7XNKqT5C9KJRnVCW8sYEF81cufnsYQZ9gXtO+I2l3MR7Dv2ix2IEFn5VC6sfnMZkJjvEsvKcl2DRRkgherAMNWroZJ4+kfi9WCCTTEzkDNhskZabRUYtD0a0BiZ4+9/rpxWdGNBH7Rn6ITQAp5Yx1U8HUPAtC+iCzfab1agus/3taX5ZazlngzusAoiLf9ItiaB3q0F1x8KF58j44YWGlxa7BFssz1Me1vLVaBNY6kSz7HRyZsgOmLD9xLlG3gDapTLGBUpRA9+OXwTj1PxCQQeJHnjK/FUrBjoR64jpjqrA="
 script:
-  - npm run build
-
+- npm run build
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_09958accfe56_key -iv $encrypted_09958accfe56_iv -in .travis/travis_deploy.enc -out .travis/travis_deploy -d
-  - eval "$(ssh-agent -s)"
-  - chmod 600 .travis/travis_deploy
-  - ssh-add .travis/travis_deploy
-  - ssh-keyscan -H $DEPLOY_HOST -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
-  - ssh-keyscan -H $DEPLOY_HOST_IP -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
-  - ssh-keyscan -H $DEPLOY_HOST,$DEPLOY_HOST_IP -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
-
+- openssl aes-256-cbc -K $encrypted_09958accfe56_key -iv $encrypted_09958accfe56_iv
+  -in .travis/travis_deploy.enc -out .travis/travis_deploy -d
+- eval "$(ssh-agent -s)"
+- chmod 600 .travis/travis_deploy
+- ssh-add .travis/travis_deploy
+- ssh-keyscan -H $DEPLOY_HOST -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
+- ssh-keyscan -H $DEPLOY_HOST_IP -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
+- ssh-keyscan -H $DEPLOY_HOST,$DEPLOY_HOST_IP -t $TRAVIS_SSH_KEY_TYPES 2>&1 >> $HOME/.ssh/known_hosts
 deploy:
   provider: script
   skip_cleanup: true
