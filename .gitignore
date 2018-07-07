@@ -1,2 +1,4 @@
 node_modules/
 utils/
+
+.travis/travis_deploy

@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "lts/8"
+
+env:
+  global:
+    secure: "Xh7WcFU0E0CRg350aer4Qh16NH5TRkwejkD7qYGn2UQV5hnUSHogril+m+0M4iZHZ7Nj1a2k/SLaHoDKE75X6TYGLCocxcf2JgFS90lsadEmdhd/EpnrM9CZyqGJpqcicuIEjreNHfbsIxezLg9exFZLeuejoiU4eFV5e8cZ4Fgpbsh2WiyEmrsAI1nljaHEJ4kuTErGr4qGW2qlCGrO61gKFFiqy2+cb6J650cPqppuvRGFvy8HSLhUEkzT/NpZbfMz8clfBWrMLqUotgEI6dc7k/WwlX0tfxk2R9R5ASDPvCE2N2xNgxhYURweINVwm/wy+tuthp7Yoz+Q8rSONktorAEd9KN4uUIX0hv/bR0FyV/BlmLyHuGzagH2VGg51/0kulZWQPjFhj6HKIi1Xgejyv870ARReAH4wkfCHz1vh4kY04TsnIhSD1jQhe2YzS4HVZ1FYRCLmcYw+tIVhOFD7rzNutXnPJhMjFEKE1g60ss6VtHI1qWf8RHJ/clMR8A+67xmQ1tnjm9oL81xf3F10s6FKapslqO1vjyMzxkSxy/VLKSyta/YDCMV0zQOcdHIayhFdUF0Oim78c/TEsSO5r9hTSC7mAOWcZrGWq56Mgp3jLCTRxoVQZoffpkCKCNG6UqAO1ILLDpQ3+uh1NAFLKQGxLH5nE8QE0Zd1Vg="
+
+script:
+  - npm run build
+
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_09958accfe56_key -iv $encrypted_09958accfe56_iv -in .travis/travis_deploy.enc -out .travis/travis_deploy -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 .travis/travis_deploy
+  - ssh-add .travistravis_deploy
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r -q $TRAVIS_BUILD_DIR/docs/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIRECTORY
+  on:
+    branch: master
