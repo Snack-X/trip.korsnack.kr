@@ -4,7 +4,7 @@ node_js:
 
 env:
   global:
-    - secure: "NzbwlNjJTg94K/Luc7jkxL5wi8bfz21Bdmt/uRFMuJ9BwMCBQeZYmbJTdcdeycDJdfK27wXUtPGIqJlwrXfDNk1bjYZjuw9/Zlmtf/1A1VzE6zfbtanU80MoUUS/Fh4utPUl+5MoGxmqrPoCw2iEar4kI7aMazppeYRPTMje88a0SACvU7v6Ow4VN5Fjqd+jSoFvZSiHqa2Fau1kbl6th83j7qO7KP29hboL9DNJ7c4knJ7GRwo4KzPfe+PyJCN4mWBKdn3k/NDn8caSO+lpmCFjilybot+Llx0D0kuzt0pghiLZvNfyPUX0khXZdK5cujmMOcSzFqfBxqK8csFAhREEYaECODJwymY1H0NECaKsFBEGaw0wQ/5UFQD/ZFAhmyvgb6xNclFdRnd8n8CuV1IO3FOtS03zgIzsnuLNLANux1TByzsXBo+MyDphslGsX8GsRP19tGHoLRUK7/doqEh2KeyVC5DKJpx5FWxXe8TKGkT/CMo7eE6FJhnfldBmxPvB1GNecn1IpBlYoJFhIVhE2w6Bdwp+QBtSORuaHSA5zBRRtf864pPDDMALvZk+OsPTCIEEv6JFBE+k+5RImcLTjZxfVV+RtriD3Vtth2T3HjdnD5a+mlFtojyUAfRbZXKcnE5JYFBkOqamDNLviN3pjNICVgJl+wY1FOHXCz8="
+    secure: "hxD9JwT++I56566aqkapNvlB0dc9u2T62BVHwx/jGY/YIyfHMpyaI4xsA73OkHlblWGyWAvc75vXAEBvakDKCtPj+a23r5Kdl7ocu2ztBr/gMIqzhNLU021yf7ztFhzcafmPpM24c30hSB4GX5F4cKKH/KGiTGlYyY9vvu7Li4B6cnNhjlbNeJ841Ptc4vTdBaMinjct4OxrS4ZWaHV+HxH4cjwVH+lU0Xq4TCZZiWVXBYWkN1m8jdrHEAOut9ZfTD8bRdv+f8zcxXPLUah8cysbVrU5LyW1j4p36eikmzhe3OHpfeLjGLZbH5KzRpPTxSK71qLFU5Xv8rbfDLW67FXDmf8MXXijlClNIykgt0AEjUpxQnCgf80e+Z+IxO5RepManBD+DTzlQzpYpuRT3K6owN0YQ+nsx/+q1xsQ3dW6WMUY4b8LZE7ldv+3tzWIMV79VvpFFed37cATHCiOKsKyAer7or8lpIz1mLdI80mLUF4mhhrOnSfPlNkaKQIUMJymPSGgsjo2esrND7Rt0zm/Wp0FBC50zWOmBiJadGxQjOmTNhymgMGb9JgXFlVcjjy7bIej9ywXhfdCS+xK8cfWjmPPnSThfnz6utCZfQMUN08DoCIfibZYFWoeV2A0NBW9klRmppZmMishSo2PiB13kaaKQET+ntFlFmuuWvY="
 
 script:
   - npm run build
@@ -14,11 +14,11 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 .travis/travis_deploy
   - ssh-add .travis/travis_deploy
-  - ssh-keyscan -t $TRAVIS_SSH_KEY_TYPES -H $DEPLOY_HOST 2>&1 | tee -a $HOME/.ssh/known_hosts
+  - ssh-keyscan -t $TRAVIS_SSH_KEY_TYPES -H $DEPLOY_HOST,$DEPLOY_HOST_IP 2>&1 | tee -a $HOME/.ssh/known_hosts
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r -q $TRAVIS_BUILD_DIR/docs/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIRECTORY
+  script: rsync -r -q $TRAVIS_BUILD_DIR/docs/ $DEPLOY_USER@$DEPLOY_HOST_IP:$DEPLOY_DIRECTORY
   on:
     branch: master
