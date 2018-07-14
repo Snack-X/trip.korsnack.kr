@@ -1,5 +1,7 @@
 node_modules/
 utils/
 
+dist/
+
 .travis/travis_deploy
 .travis/known_hosts

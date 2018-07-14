@@ -1,0 +1,41 @@
+{% set directories = env.helpers.directoriesUnder(contents, "/") %}
+{% set trips = [] %}
+
+{% set title = "Snack Trips" %}
+{% set permalink = "/" %}
+{% set pageClass = "main" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="content">
+  <div class="container">
+    <h2 class="title">All Trips</h2>
+    <section class="trips">
+    {% for directory in directories | sort(true) %}
+    {% if contents[directory]["info.data.json"] %}
+      {% set tripMetadata = contents[directory]["info.data.json"].metadata %}
+      <div class="item">
+        <div class="flag"><img src="/assets/images/flag-{{ tripMetadata.country }}.svg"></div>
+        <h3 class="name">{{ tripMetadata.name }}</h3>
+        <p class="date">
+          <date class="start" datetime="{{ tripMetadata.start }}">{{tripMetadata.start}}</date>
+          <span class="tilde">~</span>
+          <date class="end" datetime="{{ tripMetadata.end }}">{{ tripMetadata.end }}</date>
+        </p>
+        <ul class="posts">
+        {% set articles = env.helpers.articlesUnder(contents, "/" + directory) %}
+        {% for article in articles | sort %}
+          <li class="item">
+            <a href="{{ contents[directory][article].url }}">
+              {{ contents[directory][article].metadata.title }}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {% endfor %}
+    </section>
+  </div>
+</section>
+{% endblock %}

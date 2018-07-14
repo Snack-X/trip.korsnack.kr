@@ -20,6 +20,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r -q $TRAVIS_BUILD_DIR/docs/ $DEPLOY_USER@$DEPLOY_HOST_IP:$DEPLOY_DIRECTORY
+  script: rsync -r -q $TRAVIS_BUILD_DIR/dist/ $DEPLOY_USER@$DEPLOY_HOST_IP:$DEPLOY_DIRECTORY
   on:
     branch: master

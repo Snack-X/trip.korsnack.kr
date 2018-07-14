@@ -1,0 +1,20 @@
+{
+  "contents": "./src",
+  "output": "./dist",
+
+  "templates": "./_templates",
+  "locals": {},
+  "plugins": [
+    "wintersmith-nunjucks",
+    "./_plugins/wintersmith-markdown",
+    "./_plugins/wintersmith-json-plus",
+    "./_plugins/wintersmith-sass",
+    "./_plugins/wintersmith-helpers"
+  ],
+  "ignore": [],
+
+  "sass": {
+    "includePaths": [ "node_modules/" ],
+    "outputStyle": "compressed"
+  }
+}

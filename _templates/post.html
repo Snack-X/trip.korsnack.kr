@@ -1,15 +1,17 @@
-{{#> pageStart pageClass="post" }}
-  {{#*inline "title"}}Snack Trips &ndash; {{travel.name}} &ndash; {{post.metadata.title}}{{/inline}}
-  {{#*inline "permalink"}}/{{travel.id}}/{{post.filename}}.html{{/inline}}
-{{/pageStart}}
+{% set travel = contents[page.metadata.travel]["info.data.json"].metadata %}
 
+{% set title = "Snack Trips &ndash; " + travel.name + " &ndash; " + page.title %}
+{% set permalink = page.url %}
+{% set pageClass = "post" %}
+{% extends "base.html" %}
+
+{% block content %}
 <section class="content">
   <div class="container">
-    <h2 class="title">{{travel.name}} &ndash; {{post.metadata.title}}</h2>
+    <h2 class="title">{{ travel.name }} &ndash; {{ page.title }}</h2>
     <div class="rendered">
-      {{{post.rendered}}}
+      {{ page.html | safe }}
     </div>
   </div>
 </section>
-
-{{> pageEnd }}
+{% endblock %}
